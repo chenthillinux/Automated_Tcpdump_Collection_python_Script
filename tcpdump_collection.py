@@ -81,6 +81,8 @@ def watch_log_and_tcpdump(file_path, error_strings):
                             t4 = threading.Thread(target=sar_collection, name='t4')
                             t5 = threading.Thread(target=ps_memory_collection, name='t5')
                             t6 = threading.Thread(target=ps_cpu_collection, name='t6')
+                            t7 = threading.Thread(target=dstate_collection, name='t7')
+
 
                             t1.start()
                             t2.start()
@@ -88,6 +90,7 @@ def watch_log_and_tcpdump(file_path, error_strings):
                             t4.start()
                             t5.start()
                             t6.start()
+                            t7.start()
 
                             t1.join()
                             t2.join()
@@ -95,6 +98,7 @@ def watch_log_and_tcpdump(file_path, error_strings):
                             t4.join()
                             t5.join()
                             t6.join()
+                            t7.join()
                             tcpdump_triggered = True
                             break
 
