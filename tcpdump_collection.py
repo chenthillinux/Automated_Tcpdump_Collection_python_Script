@@ -49,7 +49,7 @@ def ps_cpu_collection():
 
 def dstate_collection():
     dstate_output = subprocess.check_output("ps -e -o stat,pid,ppid,user,pcpu,cmd,wchan:32 --sort=stat | grep -w D", shell=True)
-    with open("Dstate_output.txt", "a") as dstate_file:
+    with open("dstate_output.txt", "a") as dstate_file:
         dstate_file.write(dstate_output.decode())
 
 
