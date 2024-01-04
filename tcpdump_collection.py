@@ -24,32 +24,44 @@ def run_tcpdump():
 
 def top_collection():
     top_output = subprocess.check_output("top -b -n 5", shell=True)
+    date_output = subprocess.check_output("date", shell=True)
     with open("top_output.txt", "a") as top_file:
+        top_file.write(date_output.decode())
         top_file.write(top_output.decode())
 
 def iotop_collection():
     iotop_output = subprocess.check_output("iotop -n 5", shell=True)
+    date_output = subprocess.check_output("date", shell=True)
     with open("iotop_output.txt", "a") as iotop_file:
+        iotop_file.write(date_output.decode())
         iotop_file.write(iotop_output.decode())
 
 def sar_collection():
     sar_output = subprocess.check_output("sar -dp 1 3", shell=True)
+    date_output = subprocess.check_output("date", shell=True)
     with open("sar_output.txt", "a") as sar_file:
+        sar_file.write(date_output.decode())
         sar_file.write(sar_output.decode())
 
 def ps_memory_collection():
     psmem_output = subprocess.check_output("ps -e -o stat,pid,ppid,user,pcpu,pmem,args,wchan:32,args --sort=-pmem | head -50", shell=True)
+    date_output = subprocess.check_output("date", shell=True)
     with open("psmem_output.txt", "a") as psmem_file:
+        psmem_file.write(date_output.decode())
         psmem_file.write(psmem_output.decode())
 
 def ps_cpu_collection():
     pscpu_output = subprocess.check_output("ps -e -o stat,pid,ppid,user,pcpu,pmem,args,wchan:32 --sort=-pcpu | head -50", shell=True)
+    date_output = subprocess.check_output("date", shell=True)
     with open("ps_cpu_output.txt", "a") as pscpu_file:
+        pscpu_file.write(date_output.decode())
         pscpu_file.write(pscpu_output.decode())
 
 def dstate_collection():
     dstate_output = subprocess.check_output("ps -e -o stat,pid,ppid,user,pcpu,cmd,wchan:32 --sort=stat | grep -w D", shell=True)
+    date_output = subprocess.check_output("date", shell=True)
     with open("Dstate_output.txt", "a") as dstate_file:
+        dstate_file.write(date_output.decode())
         dstate_file.write(dstate_output.decode())
 
 
