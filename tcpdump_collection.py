@@ -99,8 +99,8 @@ def watch_log_and_tcpdump(file_path, error_strings):
                             t5.join()
                             t6.join()
                             t7.join()
-                            tcpdump_triggered = True
-                            break
+                            #tcpdump_triggered = True
+                            #break
 
 # Example usage: Watch for multiple error strings in '/var/log/syslog' file for 1 day
 error_strings_to_watch = ['ERROR', 'WARNING', 'CRITICAL']
