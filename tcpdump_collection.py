@@ -30,7 +30,7 @@ def top_collection():
         top_file.write(top_output.decode())
 
 def iotop_collection():
-    iotop_output = subprocess.check_output("iotop -n 5", shell=True)
+    iotop_output = subprocess.check_output("iotop -b -n 5", shell=True)
     date_output = subprocess.check_output("date", shell=True)
     with open("iotop_output.txt", "a") as iotop_file:
         iotop_file.write(date_output.decode())
